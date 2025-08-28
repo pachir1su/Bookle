@@ -1,0 +1,15 @@
+{
+  "name": "bookle-fullstack-root",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "setup:win": "py -3 -m venv backend\\.venv && backend\\.venv\\Scripts\\pip install -r backend\\requirements.txt && backend\\.venv\\Scripts\\python backend\\seed.py && cd frontend && npm install",
+    "setup:posix": "python3 -m venv backend/.venv && backend/.venv/bin/pip install -r backend/requirements.txt && backend/.venv/bin/python backend/seed.py && cd frontend && npm install",
+    "dev:win": "concurrently -n BACKEND,FRONTEND -c blue,green \"cd backend && .venv\\Scripts\\python app.py\" \"cd frontend && npm run dev\"",
+    "dev": "concurrently -n BACKEND,FRONTEND -c blue,green \"cd backend && .venv/bin/python app.py\" \"cd frontend && npm run dev\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1",
+    "wait-on": "^8.0.1"
+  }
+}
